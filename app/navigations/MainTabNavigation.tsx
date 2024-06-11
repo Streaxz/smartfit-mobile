@@ -2,15 +2,11 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MainScreen } from '@/screens/MainScreen';
 import { AnotherScreen } from '@/screens/AnotherScreen';
-import {RegistrationScreen} from "@/screens/RegistrationScreen"; // Replace with your actual screen
+import {RegistrationScreen} from "@/screens/RegistrationScreen";
 
 const Tab = createBottomTabNavigator();
 
-export interface IMainTabNavigationProps {
-	isLoggedIn?: boolean;
-}
-export const MainTabNavigator: React.FC<IMainTabNavigationProps> = ({isLoggedIn}) => {
-	console.log(isLoggedIn);
+export const MainTabNavigator: React.FC = () => {
 	return (
 		<Tab.Navigator>
 			<Tab.Screen name="Home" component={MainScreen} options={{headerShown: false}}/>

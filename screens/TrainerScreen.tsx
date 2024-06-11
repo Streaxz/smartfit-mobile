@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {PhoneInput} from "@/components/PhoneInput";
+import {USER_TYPE} from "@/types/user";
+
 export const TrainerScreen: React.FC = () => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Trainer Registration</Text>
-			<PhoneInput />
+			<PhoneInput
+				role={USER_TYPE.TRAINER}
+			/>
 		</View>
 	);
 };

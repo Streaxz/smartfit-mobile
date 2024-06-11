@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { RegistrationScreenNavigationProp } from '@/types/navigation';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {RegistrationScreenNavigationProp, ROUTES} from '@/types/navigation';
 import {BLACK, CLIENT_BUTTON_COLOR, TRAINER_BUTTON_COLOR, WHITE} from "@/constants/Colors";
 
 export const RegistrationScreen: React.FC = () => {
@@ -13,13 +13,13 @@ export const RegistrationScreen: React.FC = () => {
 			<View style={styles.buttonContainer}>
 				<TouchableOpacity
 					style={[styles.button, styles.trainerButton]}
-					onPress={() => navigation.navigate('TrainerAuth')}
+					onPress={() => navigation.navigate(ROUTES.TRAINER_AUTH)}
 				>
 					<Text style={styles.buttonText}>я тренер</Text>
 				</TouchableOpacity>
 				<TouchableOpacity
 					style={[styles.button, styles.clientButton]}
-					onPress={() => navigation.navigate('ClientAuth')}
+					onPress={() => navigation.navigate(ROUTES.CLIENT_AUTH)}
 				>
 					<Text style={styles.buttonText}>я клиент</Text>
 				</TouchableOpacity>
@@ -27,7 +27,7 @@ export const RegistrationScreen: React.FC = () => {
 					style={styles.skipButton}
 					onPress={() => navigation.reset({
 						index: 0,
-						routes: [{ name: 'Main' }],
+						routes: [{ name: ROUTES.MAIN}],
 					})}
 				>
 					<Text style={styles.skipButtonText}>Пропустить</Text>
