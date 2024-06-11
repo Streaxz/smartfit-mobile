@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import { TextInput, Button, StyleSheet } from 'react-native';
 import {Colors} from "@/constants/Colors";
+import {USER_TYPE} from "@/types/user";
+import {useDispatch} from "react-redux";
+import {login} from "@/features/auth/authStore";
+import {useNavigation} from "@react-navigation/native";
+import {RegistrationScreenNavigationProp, ROUTES} from "@/types/navigation";
 
-export const PhoneInput: React.FC = () => {
+interface PhoneInputProps {
+	role: USER_TYPE;
+}
+export const PhoneInput: React.FC<PhoneInputProps> = ({role}) => {
 	const [phoneNumber, setPhoneNumber] = useState<string>('');
+	const dispatch = useDispatch();
 
-	const handleRegister = () => {
-		alert(`Phone Number: ${phoneNumber}`);
+	const navigation = useNavigation<RegistrationScreenNavigationProp>();
+
+	const handleLogin = () => {
+		dispatch(login({ role }));
+		navigation.navigate(ROUTES.MAIN);
 	};
 
 	return (
@@ -18,7 +30,7 @@ export const PhoneInput: React.FC = () => {
 				value={phoneNumber}
 				onChangeText={setPhoneNumber}
 			/>
-			<Button title="Register" onPress={handleRegister} color="#f194ff" />
+			<Button title="Register" onPress={handleLogin} color="#f194ff" />
 		</>
 	);
 };
