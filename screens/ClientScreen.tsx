@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import {PhoneInput} from "@/components/PhoneInput";
+import {USER_TYPE} from "@/types/user";
 export const ClientScreen: React.FC = () => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Client Registration</Text>
-			<PhoneInput />
+			<PhoneInput
+				role={USER_TYPE.CLIENT}
+			/>
 		</View>
 	);
 };
