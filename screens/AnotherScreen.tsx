@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export const MainScreen: React.FC = () => {
+export const AnotherScreen: React.FC = () => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Main Screen</Text>
+			<Text style={styles.title}>Another screen</Text>
 		</View>
 	);
 }

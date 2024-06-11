@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-export const MainScreen: React.FC = () => {
+import {PhoneInput} from "@/components/PhoneInput";
+export const ClientScreen: React.FC = () => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Main Screen</Text>
+			<Text style={styles.title}>Client Registration</Text>
+			<PhoneInput />
 		</View>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -19,4 +20,4 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		marginBottom: 20,
 	},
-})
+});
