@@ -1,15 +1,32 @@
 import {IUser, USER_TYPE} from "@/types/user";
 
 
+
+export const coach: IUser = {
+	id: '1',
+	email: 'user@example.com',
+	name: 'Клиентов Александр Станиславович',
+	role: USER_TYPE.TRAINER,
+	authId: 'auth123',
+	mainClientsId: ['client1', 'client2'],
+	profileId: 'profile123',
+	mainCouchId: 'couch123',
+	profile: {
+		currentWeight: 99.8,
+		currentHeight: 180,
+	}
+}
+
 export const user: IUser = {
 	id: '1',
 	email: 'user@example.com',
-	name: 'Николай Сергеевич Верещагин',
+	name: 'Тренеров Сергей Олегович',
 	role: USER_TYPE.CLIENT,
 	authId: 'auth123',
 	mainClientsId: ['client1', 'client2'],
 	profileId: 'profile123',
 	mainCouchId: 'couch123',
+	mainCouch: coach,
 	profile: {
 		currentWeight: 99,
 		currentHeight: 180,

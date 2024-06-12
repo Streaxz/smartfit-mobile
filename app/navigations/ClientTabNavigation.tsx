@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 		padding: 5, // Adds padding around the icon
 	},
 	iconContainerFocused: {
-		backgroundColor: COLORS.ORANGE, // Background color for the active tab
+		backgroundColor: COLORS.DARK_ORANGE, // Background color for the active tab
 		borderRadius: 6, // Ensures the background color has rounded corners
 	},
 });
