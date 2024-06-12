@@ -17,13 +17,14 @@ export interface IUser {
 	updatedAt?: Date;
 	profileId: string;
 	profile: IProfile;
-	mainCouchId: string;
+	mainCouchId?: string;
+	mainCouch?: IUser;
 }
 
 export interface IProfile {
 	currentWeight: number;
 	currentHeight: number;
-	inBody: IInBody;
+	inBody?: IInBody;
 }
 
 

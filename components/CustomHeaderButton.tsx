@@ -14,7 +14,7 @@ const CustomHeaderButton: React.FC = () => {
 
 const styles = StyleSheet.create({
 	button: {
-		backgroundColor: COLORS.ORANGE, // Customize your button style here
+		backgroundColor: COLORS.DARK_ORANGE, // Customize your button style here
 		borderRadius: 5,
 		marginTop: 7,
 		padding: 10,

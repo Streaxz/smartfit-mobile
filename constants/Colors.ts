@@ -6,14 +6,22 @@
 export enum COLORS {
   TINT_COLOR_LIGHT = '#0a7ea4',
   TINT_COLOR_DARK = '#2c2828',
+  LIGHT_GRAY = '#52556A',
+  GRAY = '#33374C',
+  DARK_GRAY = '#202439',
   BACK_BUTTON_BACKGROUND = '#f194ff',
-  CARD_BACKGROUND = '#f5f5f5',
-  DARK_BACKGROUND = '#52556A',
+  LIGHT_ORANGE = '#FFAD85',
+  ORANGE = '#EA8A5C',
+  DARK_ORANGE = '#ED692A',
+  YELLOW = '#F0A81B',
+  GREEN = '#24E766',
+  RED = '#E63219',
+  CARD_BACKGROUND = '#EFF1F9',
   WHITE = '#fff',
   BLACK = '#000',
   CLIENT_BUTTON_COLOR = '#2196F3',
   TRAINER_BUTTON_COLOR = '#dd3dfc',
-  ORANGE = '#ED692A',
+
 }
 
 export const Colors = {

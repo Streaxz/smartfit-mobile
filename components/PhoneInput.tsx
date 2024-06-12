@@ -5,7 +5,7 @@ import {USER_TYPE} from "@/types/user";
 import {useDispatch} from "react-redux";
 import {login} from "@/features/auth/authStore";
 import {useNavigation} from "@react-navigation/native";
-import {RegistrationScreenNavigationProp, ROUTES} from "@/types/navigation";
+import {NavigationProp, ROUTES} from "@/types/navigation";
 import {user} from "@/utils/mocks";
 
 interface PhoneInputProps {
@@ -15,7 +15,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({role}) => {
 	const [phoneNumber, setPhoneNumber] = useState<string>('');
 	const dispatch = useDispatch();
 
-	const navigation = useNavigation<RegistrationScreenNavigationProp>();
+	const navigation = useNavigation<NavigationProp>();
 
 	const handleLogin = () => {
 		dispatch(login({ role, user }));

@@ -4,9 +4,11 @@ export enum ROUTES {
 	REGISTRATION = 'Registration',
 	TRAINER_AUTH = 'TrainerAuth',
 	TRAINER_NAV = 'TrainerNav',
+	TRAINERS_LIST = 'TrainersList',
 	CLIENT_AUTH = 'ClientAuth',
 	CLIENT_NAV = 'ClientNav',
 	MAIN = 'Main',
+	PLAN = 'Plan',
 }
 
 export type RootStackParamList = {
@@ -14,11 +16,13 @@ export type RootStackParamList = {
 	[ROUTES.TRAINER_AUTH]: undefined;
 	[ROUTES.CLIENT_AUTH]: undefined;
 	[ROUTES.MAIN]: undefined;
+	[ROUTES.PLAN]: undefined;
+	[ROUTES.TRAINERS_LIST]: undefined;
 	[ROUTES.TRAINER_NAV]: { screen: ROUTES };
 	[ROUTES.CLIENT_NAV]: { screen: ROUTES };
 };
 
-export type RegistrationScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, ROUTES.REGISTRATION>;
+export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export enum CLIENT_TABS {
 	HOME= 'Home',

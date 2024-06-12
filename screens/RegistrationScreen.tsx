@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {RegistrationScreenNavigationProp, ROUTES} from '@/types/navigation';
+import {NavigationProp, ROUTES} from '@/types/navigation';
 import {COLORS} from "@/constants/Colors";
 
 export const RegistrationScreen: React.FC = () => {
-	const navigation = useNavigation<RegistrationScreenNavigationProp>();
+	const navigation = useNavigation<NavigationProp>();
 
 	return (
 		<View style={styles.container}>

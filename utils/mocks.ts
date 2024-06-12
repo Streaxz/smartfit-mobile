@@ -1,15 +1,33 @@
 import {IUser, USER_TYPE} from "@/types/user";
+import {TrainingData} from "@/types/trainings";
 
+
+
+export const coach: IUser = {
+	id: '1',
+	email: 'user@example.com',
+	name: 'Тренеров Александр Станиславович',
+	role: USER_TYPE.TRAINER,
+	authId: 'auth123',
+	mainClientsId: ['client1', 'client2'],
+	profileId: 'profile123',
+	mainCouchId: 'couch123',
+	profile: {
+		currentWeight: 99.8,
+		currentHeight: 180,
+	}
+}
 
 export const user: IUser = {
 	id: '1',
 	email: 'user@example.com',
-	name: 'Николай Сергеевич Верещагин',
+	name: 'Клиентов Сергей Олегович',
 	role: USER_TYPE.CLIENT,
 	authId: 'auth123',
 	mainClientsId: ['client1', 'client2'],
 	profileId: 'profile123',
 	mainCouchId: 'couch123',
+	mainCouch: coach,
 	profile: {
 		currentWeight: 99,
 		currentHeight: 180,
@@ -116,4 +134,107 @@ export const user: IUser = {
 			}
 		}
 	}
+}
+
+
+export const trainingData: TrainingData = {
+	"exercises": [
+		{
+			"photos": [
+				"/mnt/data/trainingData/photos/squat_1.jpg",
+				"/mnt/data/trainingData/photos/squat_2.jpg"
+			],
+			"difficulty": "Начинающий",
+			"name": "Приседания",
+			"muscle": "Ноги",
+			"additionalMuscle": "Ягодицы",
+			"type": "Силовая тренировка",
+			"equipment": "Без оборудования",
+			"sets": 3,
+			"reps": 15,
+			"restBetweenSets": 60
+		},
+		{
+			"photos": [
+				"/mnt/data/trainingData/photos/pushup_1.jpg",
+				"/mnt/data/trainingData/photos/pushup_2.jpg"
+			],
+			"difficulty": "Начинающий",
+			"name": "Отжимания",
+			"muscle": "Грудные",
+			"additionalMuscle": "Трицепсы",
+			"type": "Силовая тренировка",
+			"equipment": "Без оборудования",
+			"sets": 3,
+			"reps": 12,
+			"restBetweenSets": 60
+		},
+		{
+			"photos": [
+				"/mnt/data/trainingData/photos/plank_1.jpg",
+				"/mnt/data/trainingData/photos/plank_2.jpg"
+			],
+			"difficulty": "Начинающий",
+			"name": "Планка",
+			"muscle": "Пресс",
+			"additionalMuscle": "Спина",
+			"type": "Силовая тренировка",
+			"equipment": "Без оборудования",
+			"sets": 3,
+			"reps": 1,
+			"restBetweenSets": 60
+		},
+		{
+			"photos": [
+				"/mnt/data/trainingData/photos/row_1.jpg",
+				"/mnt/data/trainingData/photos/row_2.jpg"
+			],
+			"difficulty": "Начинающий",
+			"name": "Тяга штанги в наклоне",
+			"muscle": "Спина",
+			"additionalMuscle": "Бицепсы",
+			"type": "Силовая тренировка",
+			"equipment": "Штанга",
+			"sets": 3,
+			"reps": 10,
+			"restBetweenSets": 60
+		},
+		{
+			"photos": [
+				"/mnt/data/trainingData/photos/lunge_1.jpg",
+				"/mnt/data/trainingData/photos/lunge_2.jpg"
+			],
+			"difficulty": "Начинающий",
+			"name": "Выпады",
+			"muscle": "Ноги",
+			"additionalMuscle": "Ягодицы",
+			"type": "Силовая тренировка",
+			"equipment": "Без оборудования",
+			"sets": 3,
+			"reps": 12,
+			"restBetweenSets": 60
+		},
+		{
+			"photos": [
+				"/mnt/data/trainingData/photos/crunch_1.jpg",
+				"/mnt/data/trainingData/photos/crunch_2.jpg"
+			],
+			"difficulty": "Начинающий",
+			"name": "Скручивания",
+			"muscle": "Пресс",
+			"additionalMuscle": "Без дополнительных мышц",
+			"type": "Силовая тренировка",
+			"equipment": "Без оборудования",
+			"sets": 3,
+			"reps": 20,
+			"restBetweenSets": 60
+		}
+	],
+	"restBetweenExercises": 90,
+	"additionalMarks": [
+		"Начните с разминки в течение 5-10 минут, чтобы разогреть мышцы и подготовить тело к тренировке.",
+		"Выполняйте упражнения с правильной техникой, чтобы избежать травм и получить максимальную пользу.",
+		"Постепенно увеличивайте нагрузку, добавляя больше повторений или подходов по мере улучшения физической формы.",
+		"Не забывайте о растяжке после тренировки для ускорения восстановления и улучшения гибкости."
+	]
 }
