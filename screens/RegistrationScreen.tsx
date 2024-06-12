@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {RegistrationScreenNavigationProp, ROUTES} from '@/types/navigation';
-import {BLACK, CLIENT_BUTTON_COLOR, TRAINER_BUTTON_COLOR, WHITE} from "@/constants/Colors";
+import {COLORS} from "@/constants/Colors";
 
 export const RegistrationScreen: React.FC = () => {
 	const navigation = useNavigation<RegistrationScreenNavigationProp>();
@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
 		width: '80%',
 	},
 	buttonText: {
-		color: WHITE,
+		color: COLORS.WHITE,
 		fontSize: 16,
 		fontWeight: 'bold',
 	},
 	clientButton: {
-		backgroundColor: CLIENT_BUTTON_COLOR,
+		backgroundColor: COLORS.CLIENT_BUTTON_COLOR,
 	},
 	container: {
 		alignItems: 'center',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 15,
 	},
 	skipButtonText: {
-		color: BLACK,
+		color: COLORS.BLACK,
 		fontSize: 16,
 		fontWeight: 'bold',
 	},
@@ -77,6 +77,6 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	trainerButton: {
-		backgroundColor: TRAINER_BUTTON_COLOR, // Pink background for trainer button
+		backgroundColor: COLORS.TRAINER_BUTTON_COLOR, // Pink background for trainer button
 	},
 });

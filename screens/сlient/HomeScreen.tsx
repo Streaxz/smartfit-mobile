@@ -1,17 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import {PhoneInput} from "@/components/PhoneInput";
-import {USER_TYPE} from "@/types/user";
-export const ClientScreen: React.FC = () => {
+
+export const HomeScreen: React.FC = () => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Client Registration</Text>
-			<PhoneInput
-				role={USER_TYPE.CLIENT}
-			/>
+			<Text style={styles.title}>Home Screen</Text>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {
@@ -23,4 +19,4 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		marginBottom: 20,
 	},
-});
+})
