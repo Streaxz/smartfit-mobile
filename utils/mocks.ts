@@ -5,7 +5,7 @@ import {IUser, USER_TYPE} from "@/types/user";
 export const coach: IUser = {
 	id: '1',
 	email: 'user@example.com',
-	name: 'Клиентов Александр Станиславович',
+	name: 'Тренеров Александр Станиславович',
 	role: USER_TYPE.TRAINER,
 	authId: 'auth123',
 	mainClientsId: ['client1', 'client2'],
@@ -20,7 +20,7 @@ export const coach: IUser = {
 export const user: IUser = {
 	id: '1',
 	email: 'user@example.com',
-	name: 'Тренеров Сергей Олегович',
+	name: 'Клиентов Сергей Олегович',
 	role: USER_TYPE.CLIENT,
 	authId: 'auth123',
 	mainClientsId: ['client1', 'client2'],

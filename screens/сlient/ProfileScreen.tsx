@@ -4,6 +4,8 @@ import {selectUser, selectUserRole} from "@/features/auth/authSelectors";
 import {useSelector} from "react-redux";
 import {COLORS} from "@/constants/Colors";
 import {USER_TYPE} from "@/types/user";
+import {LevelBlock} from "@/components/LevelBlock";
+import {Achievements} from "@/components/Achievements";
 
 
 export interface Achievement {
@@ -21,6 +23,9 @@ export const achievements: Achievement[] = [
 export const ProfileScreen: React.FC = () => {
 	const user = useSelector(selectUser)!;
 	const role = useSelector(selectUserRole)!;
+
+	// Calculate progress percentage for the circular progress bar
+	const progress = (90 / 100) * 100;
 	return (
 		<ScrollView style={styles.container}>
 			<View style={styles.profile}>
@@ -50,6 +55,11 @@ export const ProfileScreen: React.FC = () => {
 					<Text style={styles.cardText}>null</Text>
 				</View>
 			</View>
+			<View style={styles.card}>
+				<LevelBlock level={2} points={230} pointsToNextLevel={1000} progress={progress} />
+
+			</View>
+
 			{role === USER_TYPE.CLIENT && user.mainCouch &&
 			<View style={styles.card}>
 				<Text style={styles.cardHeader}> Тренер </Text>
@@ -94,37 +104,12 @@ export const ProfileScreen: React.FC = () => {
 			</View>
 			}
 			<Text style={styles.cardHeader}> Достижения</Text>
-			<View style={styles.achievementsContainer}>
-				<ScrollView horizontal showsHorizontalScrollIndicator={false}>
-					{achievements.map((achievement: Achievement, index: number) => (
-						<View key={index} style={styles.achievement}>
-							<Image source={{ uri: achievement.image }} style={styles.image} />
-							<Text style={styles.label}>{achievement.label}</Text>
-						</View>
-					))}
-				</ScrollView>
-			</View>
+			<Achievements/>
 		</ScrollView>
 	);
 }
 
 const styles = StyleSheet.create({
-	achievement: {
-		alignItems: 'center',
-		backgroundColor: COLORS.WHITE,
-		borderRadius: 8,
-		elevation: 3,
-		marginHorizontal: 8,
-		padding: 8,
-		shadowColor: COLORS.BLACK,
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.2,
-		shadowRadius: 2,
-		width: 100,
-	},
-	achievementsContainer: {
-		marginVertical: 16,
-	},
 	badge: {
 		backgroundColor: COLORS.LIGHT_GRAY,
 		borderRadius: 8,
@@ -175,11 +160,6 @@ const styles = StyleSheet.create({
 		height: 70,
 		marginBottom: 8,
 		width: 70,
-	},
-	label: {
-		fontSize: 14,
-		fontWeight: 'bold',
-		textAlign: 'center',
 	},
 	name: {
 		flexShrink: 1,
