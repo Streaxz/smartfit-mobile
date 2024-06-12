@@ -2,16 +2,19 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList, ROUTES} from '@/types/navigation';
-import {ClientScreen} from "@/screens/Client/ClientScreen";
+import {ClientTabNavigator} from "@/app/navigations/ClientTabNavigation";
 
 const ClientStack = createNativeStackNavigator<RootStackParamList>();
 
 export const ClientNavigator: React.FC = () => {
 	return (
 		<ClientStack.Navigator
-			initialRouteName={ROUTES.CLIENT_NAV}
+			screenOptions={{
+				headerShown: false
+			}}
 		>
-			<ClientStack.Screen name={ROUTES.CLIENT_NAV} component={ClientScreen}/>
+			<ClientStack.Screen name={ROUTES.MAIN} component={ClientTabNavigator} options={{headerShown: false}}/>
+
 		</ClientStack.Navigator>
 	);
 }
