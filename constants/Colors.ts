@@ -16,7 +16,7 @@ export enum COLORS {
   YELLOW = '#F0A81B',
   GREEN = '#24E766',
   RED = '#E63219',
-  CARD_BACKGROUND = '#f5f5f5',
+  CARD_BACKGROUND = '#EFF1F9',
   WHITE = '#fff',
   BLACK = '#000',
   CLIENT_BUTTON_COLOR = '#2196F3',

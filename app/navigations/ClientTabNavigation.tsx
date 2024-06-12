@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CLIENT_TABS} from "@/types/navigation";
 import {View, StyleSheet} from "react-native";
 import {COLORS} from "@/constants/Colors";
+import {PlansScreen} from "@/screens/сlient/PlansScreen";
 const Tab = createBottomTabNavigator();
 
 type TabBarIconProps = {
@@ -40,7 +41,7 @@ export const ClientTabNavigator: React.FC = () => {
 			<Tab.Screen name={CLIENT_TABS.PROFILE} component={ProfileScreen} options={{
 				tabBarIcon: getTabBarIcon('account-outline'),
 			}}/>
-			<Tab.Screen name={CLIENT_TABS.WORKOUTS} component={ProfileScreen} options={{
+			<Tab.Screen name={CLIENT_TABS.WORKOUTS} component={PlansScreen} options={{
 				tabBarIcon: getTabBarIcon('dumbbell'),
 			}}/>
 			<Tab.Screen name={CLIENT_TABS.HOME} component={HomeScreen} options={{

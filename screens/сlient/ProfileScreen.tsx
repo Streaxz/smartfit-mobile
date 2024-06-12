@@ -6,6 +6,7 @@ import {COLORS} from "@/constants/Colors";
 import {USER_TYPE} from "@/types/user";
 import {LevelBlock} from "@/components/LevelBlock";
 import {Achievements} from "@/components/Achievements";
+import {TrainerCard} from "@/components/TrainerCard";
 
 
 export interface Achievement {
@@ -25,7 +26,7 @@ export const ProfileScreen: React.FC = () => {
 	const role = useSelector(selectUserRole)!;
 
 	// Calculate progress percentage for the circular progress bar
-	const progress = (90 / 100) * 100;
+	const progress = (20 / 100) * 100;
 	return (
 		<ScrollView style={styles.container}>
 			<View style={styles.profile}>
@@ -55,30 +56,14 @@ export const ProfileScreen: React.FC = () => {
 					<Text style={styles.cardText}>null</Text>
 				</View>
 			</View>
+			{role === USER_TYPE.CLIENT &&
 			<View style={styles.card}>
 				<LevelBlock level={2} points={230} pointsToNextLevel={1000} progress={progress} />
 
 			</View>
-
+			}
 			{role === USER_TYPE.CLIENT && user.mainCouch &&
-			<View style={styles.card}>
-				<Text style={styles.cardHeader}> Тренер </Text>
-				<View style={styles.profileInfo}>
-					<Image
-						source={{uri: 'https://via.placeholder.com/150'}}
-						style={styles.image}
-					/>
-					<View style={styles.nameContainer}>
-						<Text style={styles.name}>{user.mainCouch.name}</Text>
-						<View style={styles.badges}>
-							{/*<View style={styles.badge}>*/}
-							{/*	/!*<Text style={styles.badge}>2 уровень</Text>*!/*/}
-							{/*</View>*/}
-						</View>
-						<Text style={styles.phone}>{user.mainCouch.email}</Text>
-					</View>
-				</View>
-			</View>
+				<TrainerCard/>
 			}
 
 			<View style={styles.card}>
@@ -103,8 +88,12 @@ export const ProfileScreen: React.FC = () => {
 				</View>
 			</View>
 			}
-			<Text style={styles.cardHeader}> Достижения</Text>
-			<Achievements/>
+			{role == USER_TYPE.CLIENT &&
+					<>
+						<Text style={styles.cardHeader}> Достижения</Text>
+						<Achievements/>
+          </>
+			}
 		</ScrollView>
 	);
 }
@@ -155,12 +144,6 @@ const styles = StyleSheet.create({
 		overflow: "scroll",
 		padding: 25
 	},
-	image: {
-		borderRadius: 50,
-		height: 70,
-		marginBottom: 8,
-		width: 70,
-	},
 	name: {
 		flexShrink: 1,
 		fontSize: 16,
@@ -172,10 +155,6 @@ const styles = StyleSheet.create({
 		flexShrink: 1,
 		marginLeft: 8
 
-	},
-	phone: {
-		color: COLORS.LIGHT_GRAY,
-		fontSize: 16,
 	},
 	profile: {
 		alignItems: 'center',
@@ -191,9 +170,4 @@ const styles = StyleSheet.create({
 		marginBottom: 8,
 		width: 150,
 	},
-	profileInfo: {
-		flexDirection: 'row',
-		marginTop: 8,
-	},
-
 });
