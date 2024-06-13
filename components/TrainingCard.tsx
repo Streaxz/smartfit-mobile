@@ -14,7 +14,6 @@ interface TrainingCardProps {
 	trainerImage: string;
 	workoutType: string;
 	location: string;
-	workoutPlan: { name: string; sets: number; reps: number }[];
 }
 
 export const TrainingCard = ({

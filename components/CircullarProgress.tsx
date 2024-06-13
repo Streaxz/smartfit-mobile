@@ -9,9 +9,10 @@ interface ICircularProgressProps {
 	size: number;
 	strokeWidth: number;
 	progress: number; // Progress in percentage (0 to 100)
+	progressText?: string;
 }
 
-export const CircularProgress = ({ size, strokeWidth, progress }: ICircularProgressProps) => {
+export const CircularProgress = ({ size, strokeWidth, progress, progressText }: ICircularProgressProps) => {
 	const radius = (size - strokeWidth) / 2;
 	const circumference = 2 * Math.PI * radius;
 	const strokeDashoffset = circumference - (progress / 100) * circumference;
@@ -34,7 +35,7 @@ export const CircularProgress = ({ size, strokeWidth, progress }: ICircularProgr
 				</G>
 			</Svg>
 			<View style={styles.labelContainer}>
-				<Text style={styles.label}>2</Text>
+				<Text style={styles.label}>{progressText || '2'}</Text>
 			</View>
 		</View>
 	);
