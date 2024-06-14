@@ -1,0 +1,29 @@
+{
+  "endOfLine": "auto",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "semi": true,
+  "newline-before-return": true,
+  "no-duplicate-variable": [true, "check-parameters"],
+  "no-var-keyword": true,
+  "importOrder": [
+    "react*",
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/(.*)$",
+    "^@/containers/(.*)$",
+    "^@/providers/(.*)$",
+    "^@/state/(.*)$",
+    "^@/api/(.*)$",
+    "^@/lib/(.*)$",
+    "^[./]",
+    "^(.*).(s)?css",
+    "antd/(.*)",
+    "^(.*).(svg|jpg|png)"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "pluginSearchDirs": false,
+  "plugins": ["@trivago/prettier-plugin-sort-imports", "eslint-config-prettier"]
+}

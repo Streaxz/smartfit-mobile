@@ -1,9 +1,9 @@
-import {IInBody} from "@/types/inBody";
+import { IInBody } from '@/types/inBody';
 
 export enum USER_TYPE {
-	CLIENT = 'client',
-	TRAINER = 'trainer',
-	ADMIN = 'admin',
+  CLIENT = 'client',
+  TRAINER = 'trainer',
+  ADMIN = 'admin',
 }
 
 export interface IUser {
@@ -27,5 +27,4 @@ export interface IProfile {
 	inBody?: IInBody;
 }
 
-
-
+export type TLoginData = { role: USER_TYPE; user: IUser };

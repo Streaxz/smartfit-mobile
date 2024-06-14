@@ -1,18 +1,26 @@
-import {DarkTheme, DefaultTheme, ThemeProvider} from '@react-navigation/native';
-import {useFonts} from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import React, {useEffect} from 'react';
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from '@react-navigation/native';
+import React, { useEffect } from 'react';
 import 'react-native-reanimated';
-import {useColorScheme} from '@/hooks/useColorScheme';
-import {registerRootComponent} from "expo";
-import store from "@/app/store";
-import {Provider} from "react-redux";
-import {MainNavigator} from "@/app/navigations/MainNavigator";
+import { Provider } from 'react-redux';
+
+import { MainNavigator } from '@/app/navigations/MainNavigator';
+import store from '@/app/store';
+import { useColorScheme } from '@/hooks/useColorScheme';
+import dayjs from 'dayjs';
+import dayjsRuLocale from 'dayjs/locale/ru';
+import { registerRootComponent } from 'expo';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+dayjs.locale(dayjsRuLocale);
 
 function App() {
-
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -34,7 +42,7 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <MainNavigator/>
+        <MainNavigator />
       </ThemeProvider>
     </Provider>
   );
