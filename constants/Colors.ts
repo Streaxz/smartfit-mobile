@@ -6,6 +6,7 @@
 export enum COLORS {
   TINT_COLOR_LIGHT = '#0a7ea4',
   TINT_COLOR_DARK = '#2c2828',
+  DARK_WHITE = '#D1D4DE',
   LIGHT_GRAY = '#52556A',
   GRAY = '#33374C',
   DARK_GRAY = '#202439',
