@@ -23,6 +23,18 @@ export enum COLORS {
   CLIENT_BUTTON_COLOR = '#2196F3',
   TRAINER_BUTTON_COLOR = '#dd3dfc',
 
+  BLACK_100 = '#202439',
+  BLACK_200 = '#33374C',
+  BLACK_300 = '#52556A',
+
+  // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
+  PRIMARY_100 = '#ED692A',
+  PRIMARY_200 = '#EA8A5C',
+  PRIMARY_300 = '#FFAD85',
+
+  WHITE_100 = '#FFFFFF',
+  WHITE_200 = '#EFF1F9',
+  WHITE_300 = '#D1D4DE',
 }
 
 export const Colors = {
