@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useAppSelector } from '@/app/hooks';
 import { COLORS } from '@/constants/Colors';
 import { selectTrainingPlanCreate } from '@/features/trainer/trainingPlans/selectors';
+import { S3_STORAGE_HOST } from '@env';
 
 import { BaseScreenLayout } from '@/components/BaseScreenLayout';
 
@@ -81,7 +82,7 @@ const TrainingPlanScreen: React.FC = () => {
                 {exercise.photos.map((photo, photoIndex) => (
                   <Image
                     key={photoIndex}
-                    source={{ uri: photo }}
+                    source={{ uri: S3_STORAGE_HOST + photo }}
                     style={styles.exercisePhoto}
                   />
                 ))}

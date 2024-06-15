@@ -17,7 +17,6 @@ import { COLORS } from '@/constants/Colors';
 import { selectTrainingPlanCreate } from '@/features/trainer/trainingPlans/selectors';
 import { fetchTrainingPlan } from '@/features/trainer/trainingPlans/slices/trainingPlanCreateSlice';
 import { NavigationProp, TRAINER_TABS } from '@/types/navigation';
-import { AI_SERVICE_API_HOST } from '@env';
 
 import BaseInput from '@/components/BaseInput';
 
@@ -99,6 +98,9 @@ const CreateAiTrainingPlanForm: React.FC<TProps> = ({
       >
         <Controller<TForm>
           control={control}
+          rules={{
+            required: true,
+          }}
           render={({ field: { onChange, onBlur, value } }) => (
             <BaseInput
               placeholder="Дополнительные требования к плану"
