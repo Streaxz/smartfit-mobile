@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {COLORS} from "@/constants/Colors";
 import CustomHeaderButton from "@/components/CustomHeaderButton";
 import {trainingData} from "@/utils/mocks";
@@ -112,11 +112,13 @@ export const Workout = () => {
 		resetStopwatch();
 	};
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
+			<View style={styles.titleContainer}>
 			<View style={styles.backButton}>
 				<CustomHeaderButton/>
 			</View>
 			<Text style={styles.title}> Тренировка</Text>
+			</View>
 			<View style={styles.card}>
 				<Text style={styles.cardTitle}>{currentWorkoutIndex + 1} упражнение - {currentExercise.name}</Text>
 				<View
@@ -215,15 +217,15 @@ export const Workout = () => {
 					)}
 				</View>
 
-		</View>
+		</SafeAreaView>
 	)
 }
 
 const styles = StyleSheet.create({
 	backButton: {
+		bottom: 6,
 		left: 26,
 		position: "absolute",
-		top: 20,
 	},
 	button: {
 		backgroundColor: COLORS.DARK_ORANGE,
@@ -291,6 +293,7 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: COLORS.CARD_BACKGROUND,
 		flex: 1,
+		justifyContent: "center",
 		overflow: "scroll",
 		padding: 25
 	},
@@ -313,4 +316,7 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 		margin: 16,
 	},
+	titleContainer: {
+		justifyContent: "center",
+	}
 });
