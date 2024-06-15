@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ProfileScreen } from '@/screens/сlient/ProfileScreen';
-import {RegistrationScreen} from "@/screens/RegistrationScreen";
 import {HomeScreen} from "@/screens/сlient/HomeScreen";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CLIENT_TABS} from "@/types/navigation";
@@ -35,9 +34,9 @@ export const ClientTabNavigator: React.FC = () => {
 				headerShown: false,
 			}}
 		>
-			<Tab.Screen name={CLIENT_TABS.SETTINGS} component={ProfileScreen} options={{
-				tabBarIcon: getTabBarIcon('settings-helper'),
-			}}/>
+			{/*<Tab.Screen name={CLIENT_TABS.SETTINGS} component={ProfileScreen} options={{*/}
+			{/*	tabBarIcon: getTabBarIcon('settings-helper'),*/}
+			{/*}}/>*/}
 			<Tab.Screen name={CLIENT_TABS.PROFILE} component={ProfileScreen} options={{
 				tabBarIcon: getTabBarIcon('account-outline'),
 			}}/>
@@ -47,15 +46,15 @@ export const ClientTabNavigator: React.FC = () => {
 			<Tab.Screen name={CLIENT_TABS.HOME} component={HomeScreen} options={{
 				tabBarIcon: getTabBarIcon('home-outline'),
 			}}/>
-			<Tab.Screen name={CLIENT_TABS.CALENDAR} component={RegistrationScreen} options={{
-				tabBarIcon: getTabBarIcon('calendar-range-outline'),
-			}}/>
-			<Tab.Screen name={CLIENT_TABS.GOALS} component={RegistrationScreen} options={{
-				tabBarIcon: getTabBarIcon('crown-outline'),
-			}}/>
-			<Tab.Screen name={CLIENT_TABS.CLUB} component={RegistrationScreen} options={{
-				tabBarIcon: getTabBarIcon('map-marker-radius'),
-			}}/>
+			{/*<Tab.Screen name={CLIENT_TABS.CALENDAR} component={RegistrationScreen} options={{*/}
+			{/*	tabBarIcon: getTabBarIcon('calendar-range-outline'),*/}
+			{/*}}/>*/}
+			{/*<Tab.Screen name={CLIENT_TABS.GOALS} component={RegistrationScreen} options={{*/}
+			{/*	tabBarIcon: getTabBarIcon('crown-outline'),*/}
+			{/*}}/>*/}
+			{/*<Tab.Screen name={CLIENT_TABS.CLUB} component={RegistrationScreen} options={{*/}
+			{/*	tabBarIcon: getTabBarIcon('map-marker-radius'),*/}
+			{/*}}/>*/}
 		</Tab.Navigator>
 	);
 }

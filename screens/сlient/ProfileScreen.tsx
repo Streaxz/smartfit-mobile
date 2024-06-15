@@ -7,19 +7,7 @@ import {USER_TYPE} from "@/types/user";
 import {LevelBlock} from "@/components/LevelBlock";
 import {Achievements} from "@/components/Achievements";
 import {TrainerCard} from "@/components/TrainerCard";
-
-
-export interface Achievement {
-	image: string;
-	label: string;
-}
-
-// Example achievements data
-export const achievements: Achievement[] = [
-	{ image: '.assets/images/achievment-1.png', label: 'Ученик недели' },
-	{ image: './img/achievment-2.png', label: 'Новая Привычка' },
-	{ image: './img/achievment-2.png', label: 'Первая тренировка' },
-];
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export const ProfileScreen: React.FC = () => {
 	const user = useSelector(selectUser)!;
@@ -85,13 +73,14 @@ export const ProfileScreen: React.FC = () => {
 			<View style={styles.card}>
 				<Text style={styles.cardHeader}> InBody</Text>
 				<View style={styles.cardContainer}>
-						<TouchableOpacity
-								style={styles.button}
-						>
-								<Text style={styles.buttonText}>
-										Добавить InBody
-								</Text>
-						</TouchableOpacity>
+            <TouchableOpacity
+                style={styles.aiButton}
+                // onPress={handleSubmit(onSubmit)}
+                // disabled={pending}
+            >
+                <Text style={styles.aiButtonText}>Добавить InBody</Text>
+                <Icon name={'auto-fix'} color={'white'} size={18} />
+            </TouchableOpacity>
 				</View>
 			</View>
 			}
@@ -106,6 +95,22 @@ export const ProfileScreen: React.FC = () => {
 }
 
 const styles = StyleSheet.create({
+	aiButton: {
+		alignItems: 'center',
+		backgroundColor: COLORS.PRIMARY_100,
+		borderRadius: 8,
+		display: 'flex',
+		flexDirection: 'row',
+		gap: 8,
+		justifyContent: 'center',
+		paddingVertical: 12,
+		width: '100%',
+	},
+	aiButtonText: {
+		color: COLORS.WHITE,
+		fontSize: 16,
+		fontWeight: 'bold',
+	},
 	badge: {
 		backgroundColor: COLORS.LIGHT_GRAY,
 		borderRadius: 8,
@@ -118,18 +123,6 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		marginBottom: 8,
 
-	},
-	button: {
-		alignItems: "center",
-		backgroundColor: COLORS.DARK_ORANGE,
-		borderRadius: 5,
-		marginBottom: 7,
-		padding: 10,
-	},
-	buttonText: {
-		color: COLORS.WHITE,
-		fontSize: 16,
-		fontWeight: 'bold',
 	},
 	card: {
 		alignItems: 'flex-start',

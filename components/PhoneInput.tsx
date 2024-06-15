@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, TextInput} from 'react-native';
-import {Colors} from "@/constants/Colors";
+import {Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {COLORS, Colors} from "@/constants/Colors";
 import {USER_TYPE} from "@/types/user";
 import {useDispatch} from "react-redux";
 import {login} from "@/features/auth/authStore";
@@ -31,17 +31,33 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({role}) => {
 		<>
 			<TextInput
 				style={styles.input}
-				placeholder="Enter your phone number"
+				placeholder="Введите свой номер"
 				keyboardType="phone-pad"
 				value={phoneNumber}
 				onChangeText={setPhoneNumber}
 			/>
-			<Button title="Register" onPress={handleLogin} color="#f194ff" />
+			<TouchableOpacity
+				style={styles.button}
+				onPress={handleLogin} >
+				<Text style={styles.buttonText}>Войти</Text>
+			</TouchableOpacity>
 		</>
 	);
 };
 
 const styles = StyleSheet.create({
+	button: {
+		backgroundColor: COLORS.DARK_ORANGE,
+		borderRadius: 5,
+		marginBottom: 7,
+		padding: 10,
+	},
+	buttonText: {
+		color: COLORS.WHITE,
+		fontSize: 16,
+		fontWeight: "bold",
+		textAlign: "center",
+	},
 	input: {
 		borderColor: Colors.light.background,
 		borderRadius: 5,

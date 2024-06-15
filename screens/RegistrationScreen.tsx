@@ -3,14 +3,13 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { COLORS } from '@/constants/Colors';
-import { NavigationProp, ROUTES, TRAINER_TABS } from '@/types/navigation';
+import {NavigationProp, ROUTES, TRAINER_TABS} from '@/types/navigation';
 
 export const RegistrationScreen: React.FC = () => {
   const navigation = useNavigation<NavigationProp>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Registration Screen</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[styles.button, styles.trainerButton]}
@@ -33,7 +32,7 @@ export const RegistrationScreen: React.FC = () => {
           onPress={() =>
             navigation.reset({
               index: 0,
-              routes: [{ name: ROUTES.MAIN }],
+              routes: [{name: ROUTES.CLIENT_NAV, params: {screen: ROUTES.MAIN}}],
             })
           }
         >
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   clientButton: {
-    backgroundColor: COLORS.CLIENT_BUTTON_COLOR,
+    backgroundColor: COLORS.DARK_ORANGE,
   },
   container: {
     alignItems: 'center',
@@ -79,11 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
   trainerButton: {
-    backgroundColor: COLORS.TRAINER_BUTTON_COLOR, // Pink background for trainer button
+    backgroundColor: COLORS.GRAY, // Pink background for trainer button
   },
 });

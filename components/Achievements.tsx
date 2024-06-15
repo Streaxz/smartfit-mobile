@@ -1,7 +1,28 @@
-import {Image, ScrollView, StyleSheet, Text, View} from "react-native";
+// components/Achievements.tsx
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import {Achievement, achievements} from "@/screens/сlient/ProfileScreen";
-import {COLORS} from "@/constants/Colors";
+import { COLORS } from "@/constants/Colors";
+
+export interface Achievement {
+	image: string;
+	label: string;
+}
+
+
+// imageMap.ts
+export const imageMap: { [key: string]: any } = {
+	'achievment-1': require('../img/achievment-1.png'),
+	'achievment-2': require('../img/achievment-2.png'),
+	'achievment-3': require('../img/achievment-3.png'),
+};
+
+
+// Example achievements data
+export const achievements: Achievement[] = [
+	{ image: 'achievment-1', label: 'Ученик недели' },
+	{ image: 'achievment-2', label: 'Новая Привычка' },
+	{ image: 'achievment-3', label: 'Первая тренировка' },
+];
 
 export const Achievements = () => {
 	return (
@@ -9,13 +30,13 @@ export const Achievements = () => {
 			<ScrollView horizontal showsHorizontalScrollIndicator={false}>
 				{achievements.map((achievement: Achievement, index: number) => (
 					<View key={index} style={styles.achievement}>
-						<Image source={{ uri: achievement.image }} style={styles.image} />
+						<Image source={imageMap[achievement.image]} style={styles.image} />
 						<Text style={styles.label}>{achievement.label}</Text>
 					</View>
 				))}
 			</ScrollView>
 		</View>
-	)
+	);
 }
 
 const styles = StyleSheet.create({

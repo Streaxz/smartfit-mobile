@@ -1,7 +1,7 @@
 import { EPayloadStatus } from '@/types/api';
-import { TTrainerClient } from '@/types/trainings';
 import { MyClientMock } from '@/utils/trainerMocks/my-client';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {TTrainerClient} from "@/types/trainings";
 
 type TState = {
   client: TTrainerClient | null;
