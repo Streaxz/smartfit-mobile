@@ -35,6 +35,8 @@ export enum COLORS {
   WHITE_100 = '#FFFFFF',
   WHITE_200 = '#EFF1F9',
   WHITE_300 = '#D1D4DE',
+
+  ERROR = '#E63219',
 }
 
 export const Colors = {

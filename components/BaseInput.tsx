@@ -1,24 +1,34 @@
-import React, { Dispatch, SetStateAction, forwardRef, useState } from 'react';
-import { StyleSheet, TextInput, TextInputProps, View } from 'react-native';
+import React, { forwardRef, useState } from 'react';
+import {
+  NativeSyntheticEvent,
+  StyleProp,
+  StyleSheet,
+  TextInput,
+  TextInputFocusEventData,
+  TextInputProps,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 import { COLORS } from '@/constants/Colors';
 
 type TProps = {
   placeholder?: string;
   value?: string;
-  setValue?: Dispatch<SetStateAction<string | undefined>>;
+  error?: boolean;
 } & TextInputProps;
 
 // eslint-disable-next-line react/display-name
 const BaseInput = forwardRef<TextInput, TProps>(
-  ({ placeholder, setValue, value, ...inputProps }, ref) => {
+  ({ placeholder, value, onBlur, style, error, ...inputProps }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const setFocused = () => {
       setIsFocused(true);
     };
 
-    const setUnFocused = () => {
+    const setUnFocused = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      onBlur?.(e);
       setIsFocused(false);
     };
 
@@ -26,20 +36,24 @@ const BaseInput = forwardRef<TextInput, TProps>(
       <View
         style={{
           ...styles.container,
-          borderColor: isFocused ? COLORS.PRIMARY_100 : COLORS.WHITE_100,
+          borderColor: error
+            ? COLORS.ERROR
+            : isFocused
+              ? COLORS.PRIMARY_100
+              : COLORS.WHITE_100,
         }}
       >
         <TextInput
-          style={styles.text}
+          style={{
+            ...styles.text,
+            ...(style ?? ({} as object)),
+          }}
           placeholder={placeholder}
           placeholderTextColor={COLORS.BLACK_100}
           onFocus={setFocused}
           onBlur={setUnFocused}
           value={value}
           ref={ref}
-          onChange={(e) => {
-            setValue?.(e.nativeEvent.text);
-          }}
           {...inputProps}
         />
       </View>

@@ -1,17 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { COLORS } from '@/constants/Colors';
+import CreateAiTrainingPlanForm from '@/forms/create-ai-training-plan-form';
 
-import BaseInput from '@/components/BaseInput';
 import { BaseScreenLayout } from '@/components/BaseScreenLayout';
 import ContentBlock from '@/components/ContentBlock';
 import SearchTitle from '@/components/SearchTitle';
@@ -20,7 +18,6 @@ import SearchTitle from '@/components/SearchTitle';
 
 const TrainingPlansScreen: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
-  const secondFieldRef = useRef<TextInput | null>(null);
 
   return (
     <BaseScreenLayout>
@@ -31,35 +28,11 @@ const TrainingPlansScreen: React.FC = () => {
       />
       <ScrollView>
         <ContentBlock label="Новый тренировочный план">
-          <View
-            style={{
-              ...styles.inputWrapper,
-              ...styles.inputWrapperFirst,
-            }}
-          >
-            <BaseInput
-              placeholder="Название"
-              enterKeyHint={'next'}
-              onSubmitEditing={() => {
-                secondFieldRef.current?.focus();
-              }}
-            />
-          </View>
-          <View style={styles.inputWrapper}>
-            <BaseInput
-              ref={secondFieldRef}
-              placeholder="Дополнительные требования к плану"
-              enterKeyHint={'enter'}
-            />
-          </View>
-          <Text style={styles.description}>
-            Вы можете описать дополнительные требования которые помогут
-            нейросети составить корректный тренировочный план.
-          </Text>
-          <TouchableOpacity style={styles.aiButton}>
-            <Text style={styles.aiButtonText}>Создать с помощью ИИ</Text>
-            <Icon name={'auto-fix'} color={'white'} size={18} />
-          </TouchableOpacity>
+          <CreateAiTrainingPlanForm
+            viewStyles={styles.inputWrapper}
+            viewFirstStyles={styles.inputWrapperFirst}
+            description="Вы можете описать дополнительные требования которые помогут нейросети составить корректный тренировочный план."
+          />
         </ContentBlock>
 
         <ContentBlock label="Мои планы">

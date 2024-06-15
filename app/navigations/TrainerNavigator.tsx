@@ -4,6 +4,7 @@ import React from 'react';
 
 import { TrainerTabNavigator } from '@/app/navigations/TrainerTabNavigation';
 import ClientProfileScreen from '@/screens/trainer/ClientProfileScreen';
+import TrainingPlanScreen from '@/screens/trainer/TrainingPlanCreateScreen';
 import { ROUTES, RootStackParamList, TRAINER_TABS } from '@/types/navigation';
 
 const TrainerStack = createNativeStackNavigator<RootStackParamList>();
@@ -22,6 +23,10 @@ export const TrainerNavigator: React.FC = () => {
       <TrainerStack.Screen
         name={TRAINER_TABS.CLIENT_PAGE}
         component={ClientProfileScreen}
+      />
+      <TrainerStack.Screen
+        name={TRAINER_TABS.TRAINING_PLAN_CREATE}
+        component={TrainingPlanScreen}
       />
     </TrainerStack.Navigator>
   );
