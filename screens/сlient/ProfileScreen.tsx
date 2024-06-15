@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {selectUser, selectUserRole} from "@/features/auth/authSelectors";
 import {useSelector} from "react-redux";
 import {COLORS} from "@/constants/Colors";
@@ -16,9 +16,9 @@ export interface Achievement {
 
 // Example achievements data
 export const achievements: Achievement[] = [
-	{ image: 'https://via.placeholder.com/150', label: 'Ученик недели' },
-	{ image: 'https://via.placeholder.com/150', label: 'Новая Привычка' },
-	{ image: 'https://via.placeholder.com/150', label: 'Первая тренировка' },
+	{ image: '.assets/images/achievment-1.png', label: 'Ученик недели' },
+	{ image: './img/achievment-2.png', label: 'Новая Привычка' },
+	{ image: './img/achievment-2.png', label: 'Первая тренировка' },
 ];
 
 export const ProfileScreen: React.FC = () => {
@@ -49,11 +49,11 @@ export const ProfileScreen: React.FC = () => {
 				</View>
 				<View style={styles.cardContainer}>
 					<Text style={styles.cardTextTitle}>Дата рождения</Text>
-					<Text style={styles.cardText}>null</Text>
+					<Text style={styles.cardText}>07.07.2000</Text>
 				</View>
 				<View style={styles.cardContainer}>
 					<Text style={styles.cardTextTitle}>Пол</Text>
-					<Text style={styles.cardText}>null</Text>
+					<Text style={styles.cardText}>Мужской</Text>
 				</View>
 			</View>
 			{role === USER_TYPE.CLIENT &&
@@ -73,18 +73,25 @@ export const ProfileScreen: React.FC = () => {
 					<Text style={styles.cardText}>Рост: {user.profile.currentHeight} см</Text>
 				</View>
 			</View>
-			<View style={styles.card}>
-				<Text style={styles.cardHeader}>Активность</Text>
-				<View style={styles.cardContainer}>
-					<Text style={styles.cardText}>Total Workouts: 50</Text>
-					<Text style={styles.cardText}>Calories Burned: 2500</Text>
-					<Text style={styles.cardText}>Active Hours: 30</Text>
-				</View>
-			</View>
+			{/*<View style={styles.card}>*/}
+			{/*	<Text style={styles.cardHeader}>Активность</Text>*/}
+			{/*	<View style={styles.cardContainer}>*/}
+			{/*		<Text style={styles.cardText}>Total Workouts: 50</Text>*/}
+			{/*		<Text style={styles.cardText}>Calories Burned: 2500</Text>*/}
+			{/*		<Text style={styles.cardText}>Active Hours: 30</Text>*/}
+			{/*	</View>*/}
+			{/*</View>*/}
 			{role === USER_TYPE.CLIENT &&
 			<View style={styles.card}>
 				<Text style={styles.cardHeader}> InBody</Text>
 				<View style={styles.cardContainer}>
+						<TouchableOpacity
+								style={styles.button}
+						>
+								<Text style={styles.buttonText}>
+										Добавить InBody
+								</Text>
+						</TouchableOpacity>
 				</View>
 			</View>
 			}
@@ -111,6 +118,18 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		marginBottom: 8,
 
+	},
+	button: {
+		alignItems: "center",
+		backgroundColor: COLORS.DARK_ORANGE,
+		borderRadius: 5,
+		marginBottom: 7,
+		padding: 10,
+	},
+	buttonText: {
+		color: COLORS.WHITE,
+		fontSize: 16,
+		fontWeight: 'bold',
 	},
 	card: {
 		alignItems: 'flex-start',
