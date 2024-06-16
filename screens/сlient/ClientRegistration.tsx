@@ -5,7 +5,7 @@ import {USER_TYPE} from "@/types/user";
 export const ClientRegistration: React.FC = () => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Client Registration</Text>
+			<Text style={styles.title}>Вход</Text>
 			<PhoneInput
 				role={USER_TYPE.CLIENT}
 			/>
