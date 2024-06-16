@@ -152,7 +152,8 @@ export const trainingData: TrainingData = {
 			"equipment": "Без оборудования",
 			"sets": 3,
 			"reps": 15,
-			"restBetweenSets": 60
+			"restBetweenSets": 60,
+			completed: true,
 		},
 		{
 			"photos": [
@@ -167,7 +168,8 @@ export const trainingData: TrainingData = {
 			"equipment": "Без оборудования",
 			"sets": 3,
 			"reps": 12,
-			"restBetweenSets": 60
+			"restBetweenSets": 60,
+			completed: true,
 		},
 		{
 			"photos": [
@@ -182,7 +184,8 @@ export const trainingData: TrainingData = {
 			"equipment": "Без оборудования",
 			"sets": 3,
 			"reps": 1,
-			"restBetweenSets": 60
+			"restBetweenSets": 60,
+			completed:false
 		},
 		{
 			"photos": [

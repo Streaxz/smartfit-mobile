@@ -1,16 +1,20 @@
-import {Image, StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {COLORS} from "@/constants/Colors";
 import React from "react";
 import {ITraining} from "@/types/trainings";
+import {NavigationProp, TRAINER_TABS} from "@/types/navigation";
+import {useNavigation} from "@react-navigation/native";
 
 
 export interface TrainingProps {
 	training: ITraining;
 }
 export const Training = ({training}: TrainingProps) => {
+	const navigation = useNavigation<NavigationProp>();
 	return (
-		<View
+		<TouchableOpacity
+			onPress={() => {navigation.navigate(TRAINER_TABS.WORKOUT)}}
 			key={training.id}
 			style={styles.trainingContainer}>
 			{!training.completed &&
@@ -56,18 +60,9 @@ export const Training = ({training}: TrainingProps) => {
 				training.completed &&
           <View style={styles.completed}>
               <Text style={styles.completedText}>Тренировка завершена</Text>
-						{training.progress ? <Text
-							style={styles.text}
-						>
-							Прогресс есть
-						</Text> : <Text
-							style={styles.text}
-						>
-							Нет прогресса
-						</Text>}
           </View>
 			}
-		</View>
+		</TouchableOpacity>
 	)
 }
 
@@ -92,11 +87,6 @@ const styles = StyleSheet.create({
 	location: {
 		color: COLORS.GRAY,
 		fontSize: 12,
-	},
-	text: {
-		color: COLORS.DARK_GRAY,
-		fontSize: 16,
-		fontWeight: 'bold',
 	},
 	timeBox: {
 		alignItems: 'center',

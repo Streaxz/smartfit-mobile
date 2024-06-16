@@ -27,6 +27,7 @@ export type RootStackParamList = {
   };
   [TRAINER_TABS.TRAINING_PLAN_CREATE]: undefined;
   [TRAINER_TABS.TRAINING_LIST]: undefined;
+  [TRAINER_TABS.WORKOUT]: undefined;
 };
 
 export type NavigationProp = NativeStackNavigationProp<
@@ -51,4 +52,5 @@ export enum TRAINER_TABS {
   TRAINING_PLANS = 'TrainingPlans',
   TRAINING_PLAN_CREATE = 'TrainingPlanCreate',
   TRAINING_LIST = 'TrainingList',
+  WORKOUT = 'TrainerWorkout',
 }
