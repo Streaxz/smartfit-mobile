@@ -45,7 +45,7 @@ export enum CLIENT_TABS {
 }
 
 export enum TRAINER_TABS {
-  HOME = 'Home',
+  HOME_TRAINER = 'HomeTrainer',
   CLIENTS_LIST = 'ClientsList',
   CLIENT_PAGE = 'ClientPage',
   TRAINING_PLANS = 'TrainingPlans',

@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   },
   inner: {
     flex: 1,
-    padding: 25,
+    padding: 10,
   },
 });

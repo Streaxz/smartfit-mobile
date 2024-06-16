@@ -9,7 +9,7 @@ export const MyClientMock: TTrainerClient = {
   phone: '+7 (123) 456-78-90',
   nextSession: {
     id: 'session1',
-    location: "",
+    location: 'ru',
     sessionName: 'Утренняя тренировка',
     startDate: '2024-06-14T09:00:00',
     duration: 3600, // 1 час в секундах

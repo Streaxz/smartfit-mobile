@@ -43,9 +43,9 @@ export const ClientTabNavigator: React.FC = () => {
 			<Tab.Screen name={CLIENT_TABS.WORKOUTS} component={PlansScreen} options={{
 				tabBarIcon: getTabBarIcon('dumbbell'),
 			}}/>
-			<Tab.Screen name={CLIENT_TABS.HOME} component={HomeScreen} options={{
-				tabBarIcon: getTabBarIcon('home-outline'),
-			}}/>
+			{/*<Tab.Screen name={CLIENT_TABS.HOME} component={HomeScreen} options={{*/}
+			{/*	tabBarIcon: getTabBarIcon('home-outline'),*/}
+			{/*}}/>*/}
 			{/*<Tab.Screen name={CLIENT_TABS.CALENDAR} component={RegistrationScreen} options={{*/}
 			{/*	tabBarIcon: getTabBarIcon('calendar-range-outline'),*/}
 			{/*}}/>*/}

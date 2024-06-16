@@ -8,6 +8,11 @@ import {LevelBlock} from "@/components/LevelBlock";
 import {Achievements} from "@/components/Achievements";
 import {TrainerCard} from "@/components/TrainerCard";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import {BaseScreenLayout} from "@/components/BaseScreenLayout";
+import * as ImagePicker from 'expo-image-picker';
+// import {pick} from "query-string";
+import axios from "axios";
+// import {match} from "node:assert";
 
 export const ProfileScreen: React.FC = () => {
 	const user = useSelector(selectUser)!;
@@ -15,8 +20,54 @@ export const ProfileScreen: React.FC = () => {
 
 	// Calculate progress percentage for the circular progress bar
 	const progress = (20 / 100) * 100;
+
+	const pickImage = async () => {
+		// No permissions request is necessary for launching the image library
+		const result = await ImagePicker.launchImageLibraryAsync({
+			mediaTypes: ImagePicker.MediaTypeOptions.All,
+			// allowsEditing: true,
+			quality: 1,
+		});
+
+		if (result.canceled) {
+			return;
+		}
+
+
+		// console.log(result);
+
+		const localUri = result.assets[0].uri;
+		const filename = localUri.split('/').pop();
+		if(!filename) return;
+
+		const match = /\.(\w+)$/.exec(filename);
+		const type = match ? `image/${match[1]}` : `image`;
+		
+		const formData = new FormData();
+		// formData.append('photo', { uri: localUri, name: filename, type });
+		formData.append('file', {
+			uri: localUri,
+			name: filename,
+			type
+		} as any )
+		// console.log(formData['_parts'][0][1]);
+
+		try {
+			await axios.post('http://147.45.252.181:8054/get-inbody', formData, {
+				headers: { 'Content-Type': 'multipart/form-data' },
+			})
+			// console.log(done)
+		} catch (e) {
+			console.log(e)
+		}
+
+		if (!result.canceled) {
+			// setImage(result.assets[0].uri);
+		}
+	};
 	return (
-		<ScrollView style={styles.container}>
+		<BaseScreenLayout>
+			<ScrollView style={styles.container}>
 			<View style={styles.profile}>
 				{/*<Text style={styles.cardHeader}> Вы </Text>*/}
 					<Image
@@ -75,6 +126,7 @@ export const ProfileScreen: React.FC = () => {
 				<View style={styles.cardContainer}>
             <TouchableOpacity
                 style={styles.aiButton}
+								onPress={pickImage}
                 // onPress={handleSubmit(onSubmit)}
                 // disabled={pending}
             >
@@ -91,6 +143,7 @@ export const ProfileScreen: React.FC = () => {
           </>
 			}
 		</ScrollView>
+		</BaseScreenLayout>
 	);
 }
 
@@ -154,7 +207,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.CARD_BACKGROUND,
 		flex: 1,
 		overflow: "scroll",
-		padding: 25
+		padding: 0
 	},
 	name: {
 		flexShrink: 1,

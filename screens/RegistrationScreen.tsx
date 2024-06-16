@@ -30,7 +30,7 @@ export const RegistrationScreen: React.FC = () => {
           onPress={() => {
             dispatch(login({ role, user }));
             navigation.navigate(ROUTES.TRAINER_NAV, {
-              screen: TRAINER_TABS.HOME,
+              screen: TRAINER_TABS.HOME_TRAINER,
             })
           }
           }

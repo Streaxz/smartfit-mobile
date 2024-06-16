@@ -10,6 +10,16 @@
         "simulator": true
       }
     },
+    "preview2": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview3": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
     "preview": {
       "distribution": "internal"
     },
