@@ -8,6 +8,7 @@ import {LevelBlock} from "@/components/LevelBlock";
 import {Achievements} from "@/components/Achievements";
 import {TrainerCard} from "@/components/TrainerCard";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import {BaseScreenLayout} from "@/components/BaseScreenLayout";
 
 export const ProfileScreen: React.FC = () => {
 	const user = useSelector(selectUser)!;
@@ -16,7 +17,8 @@ export const ProfileScreen: React.FC = () => {
 	// Calculate progress percentage for the circular progress bar
 	const progress = (20 / 100) * 100;
 	return (
-		<ScrollView style={styles.container}>
+		<BaseScreenLayout>
+			<ScrollView style={styles.container}>
 			<View style={styles.profile}>
 				{/*<Text style={styles.cardHeader}> Вы </Text>*/}
 					<Image
@@ -91,6 +93,7 @@ export const ProfileScreen: React.FC = () => {
           </>
 			}
 		</ScrollView>
+		</BaseScreenLayout>
 	);
 }
 
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.CARD_BACKGROUND,
 		flex: 1,
 		overflow: "scroll",
-		padding: 25
+		padding: 0
 	},
 	name: {
 		flexShrink: 1,

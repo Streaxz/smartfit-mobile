@@ -15,7 +15,7 @@ export const RegistrationScreen: React.FC = () => {
           style={[styles.button, styles.trainerButton]}
           onPress={() =>
             navigation.navigate(ROUTES.TRAINER_NAV, {
-              screen: TRAINER_TABS.HOME,
+              screen: TRAINER_TABS.HOME_TRAINER,
             })
           }
         >
@@ -27,17 +27,17 @@ export const RegistrationScreen: React.FC = () => {
         >
           <Text style={styles.buttonText}>я клиент</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.skipButton}
-          onPress={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{name: ROUTES.CLIENT_NAV, params: {screen: ROUTES.MAIN}}],
-            })
-          }
-        >
-          <Text style={styles.skipButtonText}>Пропустить</Text>
-        </TouchableOpacity>
+        {/*<TouchableOpacity*/}
+        {/*  style={styles.skipButton}*/}
+        {/*  onPress={() =>*/}
+        {/*    navigation.reset({*/}
+        {/*      index: 0,*/}
+        {/*      routes: [{name: ROUTES.CLIENT_NAV, params: {screen: ROUTES.MAIN}}],*/}
+        {/*    })*/}
+        {/*  }*/}
+        {/*>*/}
+        {/*  <Text style={styles.skipButtonText}>Пропустить</Text>*/}
+        {/*</TouchableOpacity>*/}
       </View>
     </View>
   );

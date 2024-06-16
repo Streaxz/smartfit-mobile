@@ -5,11 +5,13 @@ import {TrainerCard} from "@/components/TrainerCard";
 import {TrainingCard} from "@/components/TrainingCard";
 import {NavigationProp, ROUTES} from "@/types/navigation";
 import {useNavigation} from "@react-navigation/native";
+import {BaseScreenLayout} from "@/components/BaseScreenLayout";
 
 export const PlansScreen = () => {
 	const navigation = useNavigation<NavigationProp>();
 	return (
-		<ScrollView style={styles.container}>
+		<BaseScreenLayout>
+			<ScrollView style={styles.container}>
 			<TrainerCard/>
 			<TouchableOpacity
 				style={styles.button}
@@ -30,6 +32,7 @@ export const PlansScreen = () => {
 			/>
 
 		</ScrollView>
+		</BaseScreenLayout>
 	)
 }
 
@@ -51,6 +54,6 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.CARD_BACKGROUND,
 		flex: 1,
 		overflow: "scroll",
-		padding: 25,
+		padding: 0,
 	}
 });
