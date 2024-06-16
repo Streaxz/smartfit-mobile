@@ -1,3 +1,5 @@
+import {IUser} from "@/types/user";
+
 export interface Exercise {
   photos: string[];
   difficulty: string;
@@ -78,3 +80,15 @@ export type TTrainSession = {
     level: number;
   };
 };
+
+export interface ITraining {
+  id: number;
+  name: string;
+  duration: number;
+  startTime: string;
+  completed: boolean;
+  progress: boolean;
+  type: string,
+  client: IUser;
+  location: string;
+}

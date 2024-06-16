@@ -8,6 +8,7 @@ import { ClientsListScreen } from '@/screens/trainer/ClientsListScreen';
 import TrainingPlansScreen from '@/screens/trainer/TrainingPlansScreen';
 import { HomeScreen } from '@/screens/сlient/HomeScreen';
 import { TRAINER_TABS } from '@/types/navigation';
+import {TrainingListScreen} from "@/screens/trainer/TrainingListScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -66,6 +67,13 @@ export const TrainerTabNavigator: React.FC = () => {
         component={TrainingPlansScreen}
         options={{
           tabBarIcon: getTabBarIcon('notebook-outline'),
+        }}
+      />
+      <Tab.Screen
+        name={TRAINER_TABS.TRAINING_LIST}
+        component={TrainingListScreen}
+        options={{
+          tabBarIcon: getTabBarIcon('dumbbell'),
         }}
       />
     </Tab.Navigator>

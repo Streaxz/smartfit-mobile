@@ -1,5 +1,5 @@
 import {IUser, USER_TYPE} from "@/types/user";
-import {TrainingData} from "@/types/trainings";
+import {ITraining, TrainingData} from "@/types/trainings";
 
 
 
@@ -238,3 +238,51 @@ export const trainingData: TrainingData = {
 		"Не забывайте о растяжке после тренировки для ускорения восстановления и улучшения гибкости."
 	]
 }
+
+export const trainingMocks: ITraining[] = [
+	{
+		id: 0,
+		name: 'Тренировка 1',
+		duration: 60,
+		startTime: '10:00',
+		completed: true,
+		progress: true,
+		type: 'Бокс',
+		client: user,
+		location: 'ул. Строителей, 2',
+	},
+	{
+		id: 1,
+		name: 'Тренировка 2',
+		duration: 60,
+		startTime: '12:00',
+		completed: true,
+		progress: false,
+		type: 'Силовая',
+		client: user,
+		location: 'ул. Строителей, 2',
+	},
+	{
+		id: 2,
+		name: 'Тренировка 3',
+		duration: 60,
+		startTime: '14:00',
+		completed: false,
+		progress: false,
+		type: 'Кардио',
+		client: user,
+		location: 'ул. Строителей, 2',
+	},
+	{
+		id: 3,
+		name: 'Тренировка 4',
+		duration: 60,
+		startTime: '16:00',
+		completed: false,
+		progress: false,
+		type: 'Силовая',
+		client: user,
+		location: 'ул. Строителей, 2',
+	},
+
+];

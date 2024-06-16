@@ -26,6 +26,7 @@ export type RootStackParamList = {
     clientId: string;
   };
   [TRAINER_TABS.TRAINING_PLAN_CREATE]: undefined;
+  [TRAINER_TABS.TRAINING_LIST]: undefined;
 };
 
 export type NavigationProp = NativeStackNavigationProp<
@@ -49,4 +50,5 @@ export enum TRAINER_TABS {
   CLIENT_PAGE = 'ClientPage',
   TRAINING_PLANS = 'TrainingPlans',
   TRAINING_PLAN_CREATE = 'TrainingPlanCreate',
+  TRAINING_LIST = 'TrainingList',
 }
